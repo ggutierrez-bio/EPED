@@ -5,16 +5,14 @@ JAVA_HOME_JDK	:= /usr/lib/jvm/java-8-openjdk-amd64
 TMP_FOLDER	:= $(PWD)/juego_de_pruebas/tmp
 BIN_DIR		:= $(TMP_FOLDER)/bin
 
-$(shell mkdir -p $(TMP_FOLDER)/$(PKG) $(BIN_DIR))
-
-
-.PHONY: clean build
+.PHONY: clean build prepare test
 
 build: clean
 	$(MAKE) prepare
 	$(JAVA_HOME_JDK)/bin/javac -d $(BIN_DIR) -sourcepath $(TMP_FOLDER)/src -cp "juego_de_pruebas/lib/TAD_modified.jar" $(TMP_FOLDER)/src/$(MAIN).java
 
 prepare:
+	@mkdir -p $(TMP_FOLDER)/src/$(PKG) $(BIN_DIR)
 	@cp -r $(SRC_DIR)/$(PKG)/* $(TMP_FOLDER)/src/$(PKG)
 
 clean:
