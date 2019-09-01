@@ -21,3 +21,7 @@ clean:
 test: build
 	$(JAVA_HOME_JDK)/bin/java -cp $(BIN_DIR):juego_de_pruebas/lib/TAD_modified.jar $(MAIN) SEQ "juego_de_pruebas/pruebas/Estudiantes_SEQ.txt" > "juego_de_pruebas/salida/Salida_SEQ.txt"
 	$(JAVA_HOME_JDK)/bin/java -jar juego_de_pruebas/lib/Comparator.jar juego_de_pruebas/salida/Salida_SEQ.txt juego_de_pruebas/salida/SalidaEsperada_SEQ.txt
+
+mitest: build
+	$(JAVA_HOME_JDK)/bin/java -cp $(BIN_DIR):juego_de_pruebas/lib/TAD_modified.jar $(MAIN) SEQ "pruebas.txt" > "salida.txt"
+	$(JAVA_HOME_JDK)/bin/java -jar juego_de_pruebas/lib/Comparator.jar salida.txt esperada.txt
